@@ -62,7 +62,7 @@ def load_properties_from_excel(file_path):
     return properties
 
 # Configuration
-EXCEL_PATH = "100 listings haifa.xlsx"
+EXCEL_PATH = "100 listings haifa.xlsx"  # File in root directory
 CLINIC_LOCATION = (32.807, 35.043)
 SCHOOL_LOCATION = (32.802, 35.048)
 
@@ -149,14 +149,14 @@ async def handle_call_tool(name: str, arguments: Dict[str, Any]) -> List[types.T
         results = []
         
         if location_type in ["clinic", "both"]:
-            clinic_closest = sort_by_distance(filtered_properties, CLINIC_LOCATION)[:3]
+            clinic_closest = sort_by_distance(filtered_properties, CLINIC_LOCATION)
             results.append("🏥 **Closest to Clinic:**")
             for i, prop in enumerate(clinic_closest, 1):
                 results.append(f"{i}. {prop} - {prop.distance:.0f}m away")
             results.append("")
         
         if location_type in ["school", "both"]:
-            school_closest = sort_by_distance(filtered_properties, SCHOOL_LOCATION)[:3]
+            school_closest = sort_by_distance(filtered_properties, SCHOOL_LOCATION)
             results.append("🏫 **Closest to School:**")
             for i, prop in enumerate(school_closest, 1):
                 results.append(f"{i}. {prop} - {prop.distance:.0f}m away")
@@ -211,22 +211,27 @@ async def handle_call_tool(name: str, arguments: Dict[str, Any]) -> List[types.T
 
 async def main():
     """Main entry point for the MCP server"""
-    async with stdio_server() as (read_stream, write_stream):
-        await server.run(
-            read_stream,
-            write_stream,
-            InitializationOptions(
-                server_name="madlan-property-finder",
-                server_version="1.0.0",
-                capabilities=server.get_capabilities(
-                    notification_options=NotificationOptions(),
-                    experimental_capabilities={},
+    print("Starting MCP server...")
+    try:
+        async with stdio_server() as (read_stream, write_stream):
+            print("Server started successfully!")
+            await server.run(
+                read_stream,
+                write_stream,
+                InitializationOptions(
+                    server_name="madlan-property-finder",
+                    server_version="1.0.0",
+                    capabilities=server.get_capabilities(
+                        notification_options=NotificationOptions(),
+                        experimental_capabilities={},
+                    ),
                 ),
-            ),
-        )
+            )
+    except Exception as e:
+        print(f"Error: {e}")
+        import traceback
+        traceback.print_exc()
 
 if __name__ == "__main__":
+    print("Running MCP server...")
     asyncio.run(main())
-
-
-
