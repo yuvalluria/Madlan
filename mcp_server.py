@@ -62,7 +62,7 @@ def load_properties_from_excel(file_path):
     return properties
 
 # Configuration
-EXCEL_PATH = "data/100 listings haifa.xlsx"
+EXCEL_PATH = "100 listings haifa.xlsx"
 CLINIC_LOCATION = (32.807, 35.043)
 SCHOOL_LOCATION = (32.802, 35.048)
 
@@ -227,5 +227,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
