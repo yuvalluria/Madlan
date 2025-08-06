@@ -1,11 +1,20 @@
 
 {
   "name": "madlan_property_finder",
-  "entry_point": "Nadlan.py",
-  "description": "Find top 3 listings below 2M NIS, 3+ rooms, closest to clinic or school",
+  "entry_point": "Madlan.py",
+  "description": "Find the 3 closest property listings to both a health clinic and an elementary school from a dataset of 100 properties.",
   "inputs": {
-    "max_price": 2000000,
-    "min_rooms": 3,
-    "target": "clinic"
+    "property_data_path": "100 listings haifa.xlsx",
+    "target_locations": [
+      {
+        "name": "clinic",
+        "address": "CLINIC_ADDRESS_HERE"
+      },
+      {
+        "name": "school",
+        "address": "SCHOOL_ADDRESS_HERE"
+      }
+    ],
+    "num_results": 3
   }
 }
