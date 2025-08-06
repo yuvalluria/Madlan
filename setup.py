@@ -88,7 +88,7 @@ def check_files():
         "services/geocoding_service.py", 
         "services/distance_calculator.py",
         "models/property.py",
-        "data/100 listings haifa.xlsx"
+        "100 listings haifa.xlsx"
     ]
     
     missing_files = []
@@ -165,4 +165,5 @@ def main():
     print(f"\n🔧 Config file location: {get_claude_config_path()}")
 
 if __name__ == "__main__":
+
     main()
