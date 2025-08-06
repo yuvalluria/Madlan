@@ -10,8 +10,9 @@ def load_properties_from_excel(file_path):
         street = row.get("street", "")
         number = row.get("number", "")
         price = row.get("price", None)
+        rooms = row.get("property_rooms", None)  # Fixed to use property_rooms
 
-        property_obj = Property(city, street, number, price)
+        property_obj = Property(city, street, number, price, rooms)
         properties.append(property_obj)
 
     return properties
