@@ -1,0 +1,11 @@
+
+{
+  "name": "madlan_property_finder",
+  "entry_point": "Nadlan.py",
+  "description": "Find top 3 listings below 2M NIS, 3+ rooms, closest to clinic or school",
+  "inputs": {
+    "max_price": 2000000,
+    "min_rooms": 3,
+    "target": "clinic"
+  }
+}
