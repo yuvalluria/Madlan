@@ -3,7 +3,6 @@
   "entry_point": "Madlan.py",
   "description": "Find the 3 closest properties to a clinic and to a school from an Excel file of listings in Haifa.",
   "inputs": {},
-  "os": ["mac", "windows"]
+  "os": ["mac", "windows"],
   "requirements": "requirements.txt"
 }
-
