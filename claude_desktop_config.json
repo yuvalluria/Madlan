@@ -1,37 +1,13 @@
+
+
 {
-  "name": "madlan_property_finder",
-  "description": "Find the 3 closest properties to a clinic and to a school from an Excel file of listings in Haifa.",
-  "entry_point": "Madlan.py",
-  "os": ["mac", "windows"],
-  "mcp": {
-    "inputs": {
-      "max_price": {
-        "type": "number",
-        "description": "Maximum price in NIS",
-        "default": 2000000
-      },
-      "min_rooms": {
-        "type": "number",
-        "description": "Minimum number of rooms",
-        "default": 3
-      },
-      "location_type": {
-        "type": "string",
-        "enum": ["clinic", "school", "both"],
-        "description": "Type of target location to calculate distances from",
-        "default": "both"
-      }
-    },
-    "outputs": {
-      "clinic_closest": {
-        "type": "list",
-        "description": "Top 3 closest properties to the clinic"
-      },
-      "school_closest": {
-        "type": "list",
-        "description": "Top 3 closest properties to the school"
+  "mcpServers": {
+    "madlan-property-finder": {
+      "command": "python",
+      "args": ["C:\\Users\\USER\\.vscode\\Madlan\\mcp_server.py"],
+      "env": {
+        "PYTHONPATH": "C:\\Users\\USER\\.vscode\\Madlan"
       }
     }
-  },
-  "requirements": "requirements.txt"
+  }
 }
