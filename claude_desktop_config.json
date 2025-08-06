@@ -1,25 +1,37 @@
 {
   "name": "madlan_property_finder",
-  "description": "Find the 3 closest properties to both a health clinic and an elementary school based on user preferences.",
+  "description": "Find the 3 closest properties to a clinic and to a school from an Excel file of listings in Haifa.",
   "entry_point": "Madlan.py",
-  "inputs": {
-    "max_price": {
-      "type": "integer",
-      "description": "Maximum price in NIS",
-      "default": 2000000
+  "os": ["mac", "windows"],
+  "mcp": {
+    "inputs": {
+      "max_price": {
+        "type": "number",
+        "description": "Maximum price in NIS",
+        "default": 2000000
+      },
+      "min_rooms": {
+        "type": "number",
+        "description": "Minimum number of rooms",
+        "default": 3
+      },
+      "location_type": {
+        "type": "string",
+        "enum": ["clinic", "school", "both"],
+        "description": "Type of target location to calculate distances from",
+        "default": "both"
+      }
     },
-    "min_rooms": {
-      "type": "integer",
-      "description": "Minimum number of rooms",
-      "default": 3
-    },
-    "target": {
-      "type": "string",
-      "enum": ["clinic", "school", "both"],
-      "description": "Target proximity focus"
+    "outputs": {
+      "clinic_closest": {
+        "type": "list",
+        "description": "Top 3 closest properties to the clinic"
+      },
+      "school_closest": {
+        "type": "list",
+        "description": "Top 3 closest properties to the school"
+      }
     }
   },
-  "requirements": "requirements.txt",
-  "os": ["windows", "mac"],
-  "mcp_version": "1.0"
+  "requirements": "requirements.txt"
 }
