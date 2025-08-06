@@ -1,4 +1,5 @@
 
+
 """
 MCP Server for Madlan Property Finder
 Provides tools to find properties closest to clinics and schools in Haifa
@@ -21,6 +22,9 @@ import mcp.types as types
 
 # Fixed file loader with rooms column
 import pandas as pd
+
+from services.distance_calculator import sort_by_distance
+from services.geocoding_service import geocode_address
 
 class Property:
     def __init__(self, city, street, number, price, rooms=None):
