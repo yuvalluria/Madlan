@@ -4,7 +4,7 @@ from services.geocoding_service import geocode_address
 from services.distance_calculator import sort_by_distance
 from models.property import Property
 
-EXCEL_PATH = "data/100 listings haifa.xlsx"
+EXCEL_PATH = "100 listings haifa.xlsx"
 
 # Define target locations
 clinic_location = (32.807, 35.043)
@@ -29,3 +29,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
